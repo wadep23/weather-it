@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="favicon" type="image/png" href="./assets/media/favicon.png">
     <link rel="bootstrap" type="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>Weather It</title>
 </head>
 <body>
@@ -13,24 +14,42 @@
         <h1>Weather Forcast</h1>
     </header>
     <main>
-        <div id="side-bar">
+        <div id="side-bar" class="container">
             <div class="col-12 col-md-4">
                 <div class="card">
                   <h3 class="card-header text-uppercase">Search By City</h3>
                   <form id="user-form" class="card-body">
                     <label class="form-label" for="search-city">City:</label>
-                    <input name="city" id="city" type="text" autofocus="true" class="form-input" />
-                    <button class="btn" id="submit">Search</button>
+                    <input name="city" id="city-name" type="text" autofocus="true" class="form-input" />
+                    <button class="btn" id="submit">Search</button>                    
                   </form>
                 </div>
-            <div id="recent"></div>
+            <div id="recent">
+                <ul id="recent-search">
+
+                </ul>
+            </div>
         </div>
 
         <div id="details">
-
+            <h2 id="city"></h2>
+            <h2 id="date"></h2>
+            <p id="icon"></p>
+            <p id="temp" class="temp"></p>
+            <p id="wind" class="wind"></p>
+            <p id="humid" class="humid"></p>
+            <p id="uv" class="uv"></p>
         </div>
 
         <div id="five-day">
+            <h3 id="fdt">5 - Day Forecast: </h3>
+            <div id="days">
+                <div id="one"></div>
+                <div id="two"></div>
+                <div id="three"></div>
+                <div id="four"></div>
+                <div id="five"></div>
+            </div>
 
         </div>
     </main>
