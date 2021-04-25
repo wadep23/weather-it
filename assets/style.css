@@ -1,0 +1,20 @@
+header {
+    text-align: center;
+    color: white;
+    background-color: rgb(64, 22, 180);    
+}
+#side-bar{
+    margin: 10px;
+    
+}
+#details{
+    justify-content: flex-start;
+}
+footer{
+    background-color: black;
+    color: ghostwhite;
+    text-align: center;
+}
+#five-day{
+    
+}

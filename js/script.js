@@ -40,9 +40,11 @@ var dayFiveWind = document.querySelector('#wind5');
 var dayFiveHumid = document.querySelector('#humid5');
 var dayFiveIcon = document.querySelector('#icon5');
 
+var citiesArray = [];
 
 
-var userCity = function(city){
+
+var getCityCoord = function(city){
     
     var getCoordApi = 
     "https://api.openweathermap.org/data/2.5/weather?appid=75011bac43d9fd1067de54fbcd6e3d47&q=" 
@@ -58,6 +60,7 @@ var userCity = function(city){
                 // create city variable
                 cityName = data.name;                
                 // console.log(data);
+                recentCity();
                 userWeather();
             });
         }else{
@@ -129,57 +132,83 @@ var userWeather = function(weather){
 };
 // Current Weather
 var showWeather = function(){
+    createCityButton(cityName);
 
     currentDate.textContent = moment().format('dddd, MMMM Do');    
     currentCity.textContent = cityName;
     curTemp.textContent =  "Temp: " + temp;
     curWind.textContent =   "Wind: " + wind + "mph";
-    curHumid.textContent =  "Humidity: " + humid;
+    curHumid.textContent =  "Humidity: " + humid + "%";
     curUv.textContent = "UV Index: " + uv;
-    icon.textContent = weatherIcon;    
+    icon.textContent = weatherIcon;
 }
 // five day
 var fiveDay = function(){
     day1.textContent = moment().add(1, 'd').format('dddd, MMMM Do');
     dayOneTemp.textContent =  "Temp: " + temp1;
     dayOneWind.textContent =   "Wind: " + wind1 + "mph";
-    dayOneHumid.textContent =  "Humidity: " + humid1;
+    dayOneHumid.textContent =  "Humidity: " + humid1 + "%";
     dayOneIcon.textContent = weatherIcon1;
     day2.textContent = moment().add(2, 'd').format('dddd, MMMM Do');
     dayTwoTemp.textContent =  "Temp: " + temp2;
     dayTwoWind.textContent =   "Wind: " + wind2 + "mph";
-    dayTwoHumid.textContent =  "Humidity: " + humid2;
+    dayTwoHumid.textContent =  "Humidity: " + humid2 + "%";
     dayTwoIcon.textContent = weatherIcon2;
     day3.textContent = moment().add(3, 'd').format('dddd, MMMM Do');
     dayThreeTemp.textContent =  "Temp: " + temp3;
     dayThreeWind.textContent =   "Wind: " + wind3 + "mph";
-    dayThreeHumid.textContent =  "Humidity: " + humid3;
+    dayThreeHumid.textContent =  "Humidity: " + humid3 + "%";
     dayThreeIcon.textContent = weatherIcon3;
     day4.textContent = moment().add(4, 'd').format('dddd, MMMM Do');
     dayFourTemp.textContent =  "Temp: " + temp4;
     dayFourWind.textContent =   "Wind: " + wind4 + "mph";
-    dayFourHumid.textContent =  "Humidity: " + humid4;
+    dayFourHumid.textContent =  "Humidity: " + humid4 + "%";
     dayFourIcon.textContent = weatherIcon4;
     day5.textContent = moment().add(5, 'd').format('dddd, MMMM Do');
     dayFiveTemp.textContent =  "Temp: " + temp5;    
     dayFiveWind.textContent =   "Wind: " + wind5 + "mph";
-    dayFiveHumid.textContent =  "Humidity: " + humid5;
+    dayFiveHumid.textContent =  "Humidity: " + humid5 + "%";
     dayFiveIcon.textContent = weatherIcon5;
 }
+// Function to store city to local storage
+var recentCity = function(){
+    if (citiesArray.length > 4) citiesArray.shift();
+    citiesArray.push(cityName);
+    localStorage.setItem("cities", citiesArray);
+}
+// Create a button with local storage data for recent searches
+var createCityButton = function(){ 
+    // var checkList = recentSearch.children.length;
+
+    if (recentSearch.children.length < 4){
+    localStorage.getItem('cities', citiesArray);
+    var recent = document.createElement('button');
+    recent.setAttribute('class', 'btn btn-secondary');
+    recent.setAttribute('id', 'submit');
+    recent.textContent = cityName;
+    recentSearch.appendChild(recent);                
+    }else{
+        recentSearch.removeChild(recentSearch.childNodes[0]);
+    }
+    // $('#submit').on('click', getCityCoord(cityName));
+}
+// var limitCityButtons = function(){
+// }
 // City submit on click function
 var formSubmitHandler = function(event){
     event.preventDefault();
-    var city = userInput.value;   
+    city = userInput.value;
+    
     
     if (city){
-        userCity(city);
+        getCityCoord(city);        
         userInput.value = "";    
     }else{
         alert('Please enter a City');
     }
 };
-
-
 // On click 
 $("#submit").on("click", formSubmitHandler);
+
+
 

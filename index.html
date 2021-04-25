@@ -5,57 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="favicon" type="image/png" href="./assets/media/favicon.png">
-    <link rel="bootstrap" type="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/style.css">
     <title>Weather It</title>
 </head>
 <body>
-    <header id="hero">
+    <header id="hero" class="container-fluid">
         <h1>Weather Forcast</h1>
     </header>
     <main>
-        <div id="side-bar" class="container">
-            <div class="col-12 col-md-4">
-                <div class="card">
-                  <h3 class="card-header text-uppercase">Search By City</h3>
-                  <form id="user-form" class="card-body">
-                    <label class="form-label" for="search-city">City:</label>
-                    <input name="city" id="city-name" type="text" autofocus="true" class="form-input" />
-                    <button class="btn" id="submit">Search</button>                    
-                  </form>
+        <div class="row">
+
+            <div id="side-bar" class="col-4">
+                <div class="">
+                    <div class="card">
+                      <h2 class="card-header text-uppercase">Search By City</h2>
+                      <form id="user-form" class="card-body">
+                        <label class="form-label" for="search-city">City:</label>
+                        <input name="city" id="city-name" type="text" autofocus="true" class="form-input"/>
+                        <button id="submit" type="button" class="btn btn-primary">Search</button>                    
+                      </form>
+                    </div>
+                <div id="recent" class="row">
+                    <ul id="recent-search" class="col">
+    
+                    </ul>
                 </div>
-            <div id="recent">
-                <ul id="recent-search">
-
-                </ul>
             </div>
+    
+            <div id="details" class="col">
+                <div class="">
+                    <h2 id="city"></h2>
+                    <h2 id="date"></h2>
+                    <p id="icon"></p>
+                    <p id="temp"></p>
+                    <p id="wind"></p>
+                    <p id="humid"></p>
+                    <p id="uv"></p>
+                </div>
+            </div>
+
         </div>
 
-        <div id="details">
-            <h2 id="city"></h2>
-            <h2 id="date"></h2>
-            <p id="icon"></p>
-            <p id="temp"></p>
-            <p id="wind"></p>
-            <p id="humid"></p>
-            <p id="uv"></p>
-        </div>
-
-        <div id="five-day">
+        <div id="five-day" class="row" >
             <h3 id="fdt">5 - Day Forecast: </h3>
 
             <div id="days">
 
-                <div id="one">
-                    <h4 id="day1"></h4>
-                    <p id="icon1"></p>
-                    <p id="temp1"></p>
-                    <p id="wind1"></p>
-                    <p id="humid1"></p>
-                    <p id="uv1"></p>
+                <div id="one" class="card">
+                    <h4 id="day1" class="card-header"></h4>
+                    <div class="card-body">
+                        <p id="icon1"></p>
+                        <p id="temp1"></p>
+                        <p id="wind1"></p>
+                        <p id="humid1"></p>
+                        <p id="uv1"></p>
+                    </div>
                 </div>
 
-                <div id="two">
+                <div id="two" class="col">
                     <h4 id="day2"></h4>
                     <p id="icon2"></p>
                     <p id="temp2"></p>
@@ -64,7 +73,7 @@
                     <p id="uv2"></p>
                 </div>
 
-                <div id="three">
+                <div id="three" class="col">
                     <h4 id="day3"></h4>
                     <p id="icon3"></p>
                     <p id="temp3"></p>
@@ -73,7 +82,7 @@
                     <p id="uv3"></p>
                 </div>
 
-                <div id="four">
+                <div id="four" class="col">
                     <h4 id="day4"></h4>
                     <p id="icon4"></p>
                     <p id="temp4"></p>
@@ -82,7 +91,7 @@
                     <p id="uv4"></p>
                 </div>
 
-                <div id="five">
+                <div id="five" class="col">
                     <h4 id="day5"></h4>
                     <p id="icon5"></p>
                     <p id="temp5"></p>
