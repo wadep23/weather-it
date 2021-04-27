@@ -2,6 +2,8 @@ var userInput = document.querySelector("#city-name");
 var userFormEl = document.querySelector('#user-form');
 var recentSearch = document.querySelector('#recent-search');
 var currentWeather = document.querySelector('#details');
+
+var placeHolder = document.querySelector('#place-holder');
 var currentDate = document.querySelector('#date');
 var currentCity = document.querySelector('#city');
 var curTemp = document.querySelector('#temp');
@@ -9,11 +11,25 @@ var curWind = document.querySelector('#wind');
 var curHumid = document.querySelector('#humid');
 var curUv = document.querySelector('#uv');
 var icon = document.querySelector('#icon');
+
+// var dayOneBody = document.querySelector('#one-body');
+// var dayTwoBody = document.querySelector('#two-body');
+// var dayThreeBody = document.querySelector('#three-body');
+// var dayFourBody = document.querySelector('#four-body');
+// var dayFiveBody = document.querySelector('#five-body');
+
+var fdf = document.querySelector('#fdt');
 var day1 = document.querySelector('#day1');
 var day2 = document.querySelector('#day2');
 var day3 = document.querySelector('#day3');
 var day4 = document.querySelector('#day4');
 var day5 = document.querySelector('#day5');
+
+var one = document.querySelector('#one');
+var two = document.querySelector('#two');
+var three = document.querySelector('#three');
+var four = document.querySelector('#four');
+var five = document.querySelector('#five');
 
 var dayOneTemp = document.querySelector('#temp1');
 var dayOneWind = document.querySelector('#wind1');
@@ -141,30 +157,49 @@ var showWeather = function(){
     curHumid.textContent =  "Humidity: " + humid + "%";
     curUv.textContent = "UV Index: " + uv;
     icon.textContent = weatherIcon;
+    currentWeather.setAttribute('class', 'card');
+    currentCity.setAttribute('class', 'card-header');
+    placeHolder.setAttribute('class', 'card-body');
+
 }
 // five day
 var fiveDay = function(){
+    fdf.textContent = "5-Day Forcast: ";
+    one.setAttribute('class', 'card');
     day1.textContent = moment().add(1, 'd').format('dddd, MMMM Do');
+    day1.setAttribute('class', 'card-header');
     dayOneTemp.textContent =  "Temp: " + temp1;
     dayOneWind.textContent =   "Wind: " + wind1 + "mph";
     dayOneHumid.textContent =  "Humidity: " + humid1 + "%";
     dayOneIcon.textContent = weatherIcon1;
+
+    two.setAttribute('class', 'card');
     day2.textContent = moment().add(2, 'd').format('dddd, MMMM Do');
+    day2.setAttribute('class', 'card-header');
     dayTwoTemp.textContent =  "Temp: " + temp2;
     dayTwoWind.textContent =   "Wind: " + wind2 + "mph";
     dayTwoHumid.textContent =  "Humidity: " + humid2 + "%";
     dayTwoIcon.textContent = weatherIcon2;
+
+    three.setAttribute('class', 'card');
     day3.textContent = moment().add(3, 'd').format('dddd, MMMM Do');
+    day3.setAttribute('class', 'card-header');
     dayThreeTemp.textContent =  "Temp: " + temp3;
     dayThreeWind.textContent =   "Wind: " + wind3 + "mph";
     dayThreeHumid.textContent =  "Humidity: " + humid3 + "%";
     dayThreeIcon.textContent = weatherIcon3;
+
+    four.setAttribute('class', 'card');
     day4.textContent = moment().add(4, 'd').format('dddd, MMMM Do');
+    day4.setAttribute('class', 'card-header');
     dayFourTemp.textContent =  "Temp: " + temp4;
     dayFourWind.textContent =   "Wind: " + wind4 + "mph";
     dayFourHumid.textContent =  "Humidity: " + humid4 + "%";
     dayFourIcon.textContent = weatherIcon4;
+
+    five.setAttribute('class', 'card');
     day5.textContent = moment().add(5, 'd').format('dddd, MMMM Do');
+    day5.setAttribute('class', 'card-header');
     dayFiveTemp.textContent =  "Temp: " + temp5;    
     dayFiveWind.textContent =   "Wind: " + wind5 + "mph";
     dayFiveHumid.textContent =  "Humidity: " + humid5 + "%";
@@ -181,19 +216,20 @@ var createCityButton = function(){
     // var checkList = recentSearch.children.length;
 
     if (recentSearch.children.length < 4){
-    localStorage.getItem('cities', citiesArray);
-    var recent = document.createElement('button');
-    recent.setAttribute('class', 'btn btn-secondary');
-    recent.setAttribute('id', 'submit');
-    recent.textContent = cityName;
-    recentSearch.appendChild(recent);                
+        localStorage.getItem('cities', citiesArray);
+        var recent = document.createElement('button');
+        recent.setAttribute('class', 'btn btn-success');                
+        recent.setAttribute('id', 'recent');
+        recent.textContent = cityName;
+        recentSearch.appendChild(recent);                
     }else{
         recentSearch.removeChild(recentSearch.childNodes[0]);
     }
-    // $('#submit').on('click', getCityCoord(cityName));
 }
+// $('#recent').on('click', getCityCoord(city));
 // var limitCityButtons = function(){
 // }
+
 // City submit on click function
 var formSubmitHandler = function(event){
     event.preventDefault();

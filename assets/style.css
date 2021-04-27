@@ -14,7 +14,16 @@ footer{
     background-color: black;
     color: ghostwhite;
     text-align: center;
+    position: fixed;
 }
-#five-day{
-    
+#fdt{
+    text-align: center;
 }
+#days{
+    justify-content: space-evenly;
+}
+/* #one-body, #two-body, #three-body, #four-body, #five-body{
+    background-color: black;
+    color: white;
+} */
+

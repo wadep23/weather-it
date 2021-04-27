@@ -15,47 +15,49 @@
         <h1>Weather Forcast</h1>
     </header>
     <main>
-        <div class="row">
+        <div class="container-fluid">
 
-            <div id="side-bar" class="col-4">
-                <div class="">
-                    <div class="card">
+            <div id="side-bar" class="row">
+                <div class="col-md-3">
+                    <div class="">
                       <h2 class="card-header text-uppercase">Search By City</h2>
-                      <form id="user-form" class="card-body">
+                      <form id="user-form" class="">
                         <label class="form-label" for="search-city">City:</label>
                         <input name="city" id="city-name" type="text" autofocus="true" class="form-input"/>
                         <button id="submit" type="button" class="btn btn-primary">Search</button>                    
                       </form>
                     </div>
-                <div id="recent" class="row">
-                    <ul id="recent-search" class="col">
-    
-                    </ul>
+                    <div id="recent">
+                        <ul id="recent-search" class="">
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div id="details" class="col-md-9 text-align-center">                        
+                        <h2 id="city"></h2>
+                        <div id="place-holder">
+                            <h3 id="date"></h3>
+                            <p id="icon"></p>
+                            <p id="temp"></p>
+                            <p id="wind"></p>
+                            <p id="humid"></p>
+                            <p id="uv"></p>
+                        </div>
                 </div>
             </div>
     
-            <div id="details" class="col">
-                <div class="">
-                    <h2 id="city"></h2>
-                    <h2 id="date"></h2>
-                    <p id="icon"></p>
-                    <p id="temp"></p>
-                    <p id="wind"></p>
-                    <p id="humid"></p>
-                    <p id="uv"></p>
-                </div>
-            </div>
 
         </div>
 
-        <div id="five-day" class="row" >
-            <h3 id="fdt">5 - Day Forecast: </h3>
+        <div id="five-day" class="container-fluid">
+            
+            <h3 id="fdt" class="row"></h3>
 
-            <div id="days">
+            <div id="days" class="row">
 
-                <div id="one" class="card">
-                    <h4 id="day1" class="card-header"></h4>
-                    <div class="card-body">
+                <div id="one" class="col">
+                    <h4 id="day1"></h4>
+                    <div id="one-body" class="card-body">
                         <p id="icon1"></p>
                         <p id="temp1"></p>
                         <p id="wind1"></p>
@@ -66,44 +68,52 @@
 
                 <div id="two" class="col">
                     <h4 id="day2"></h4>
-                    <p id="icon2"></p>
-                    <p id="temp2"></p>
-                    <p id="wind2"></p>
-                    <p id="humid2"></p>
-                    <p id="uv2"></p>
+                    <div id="two-body" class="card-body">
+                        <p id="icon2"></p>
+                        <p id="temp2"></p>
+                        <p id="wind2"></p>
+                        <p id="humid2"></p>
+                        <p id="uv2"></p>
+                    </div>
                 </div>
 
                 <div id="three" class="col">
                     <h4 id="day3"></h4>
-                    <p id="icon3"></p>
-                    <p id="temp3"></p>
-                    <p id="wind3"></p>
-                    <p id="humid3"></p>
-                    <p id="uv3"></p>
+                    <div id="three-body" class="card-body">
+                        <p id="icon3"></p>
+                        <p id="temp3"></p>
+                        <p id="wind3"></p>
+                        <p id="humid3"></p>
+                        <p id="uv3"></p>
+                    </div>
                 </div>
 
                 <div id="four" class="col">
                     <h4 id="day4"></h4>
-                    <p id="icon4"></p>
-                    <p id="temp4"></p>
-                    <p id="wind4"></p>
-                    <p id="humid4"></p>
-                    <p id="uv4"></p>
+                    <div id="four-body" class="card-body">
+                        <p id="icon4"></p>
+                        <p id="temp4"></p>
+                        <p id="wind4"></p>
+                        <p id="humid4"></p>
+                        <p id="uv4"></p>
+                    </div>
                 </div>
 
                 <div id="five" class="col">
                     <h4 id="day5"></h4>
-                    <p id="icon5"></p>
-                    <p id="temp5"></p>
-                    <p id="wind5"></p>
-                    <p id="humid5"></p>
-                    <p id="uv5"></p>
+                    <div id="five-body" class="card-body">
+                        <p id="icon5"></p>
+                        <p id="temp5"></p>
+                        <p id="wind5"></p>
+                        <p id="humid5"></p>
+                        <p id="uv5"></p>
+                    </div>
                 </div>
             </div>
 
         </div>
     </main>
-    <footer>
+    <footer class="container-fluid">
         Master crafted by Team Argonaut&#169;
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
